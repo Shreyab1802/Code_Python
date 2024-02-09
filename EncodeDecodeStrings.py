@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Codec:
     # //dictMap = {1:"espon",2:"sfedscdv"}
     def encode(self, strs: List[str]) -> str:
