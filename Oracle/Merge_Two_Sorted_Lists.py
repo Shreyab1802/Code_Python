@@ -1,16 +1,31 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def isValid(self, s: str) -> bool:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()
+        tail = dummy
 
-        map_dict = {")": "(", "}": "{", "]": "["}
-        stack = []
+        if not list1:
+            return list2
+        if not list2:
+            return list1
 
-        for char in s:
-            if char not in map_dict:
-                stack.append(char)
+        while list1 and list2:
+            if list1.val < list2.val:
+                tail.next = list1
+                list1 = list1.next
+            elif list1.val > list2.val:
+                list2 = list2.next
+                tail.next = list2
+            tail = tail.next
 
+        if not list1:
+            tail.next = list2
 
-            else:
-                if not stack or stack[-1] != map_dict[char]:
-                    return False
-                stack.pop()
-        return not stack
+        if not list2:
+            tail.next = list1
+
+        return dummy.next
