@@ -7,4 +7,5 @@ def total_horizontal_strikes(heights):
             ans += diff
     return ans
 
+print(total_horizontal_strikes([1, 3, 2, 1, 2, 1, 5, 3, 3, 4, 2]))
 assert total_horizontal_strikes([1, 3, 2, 1, 2, 1, 5, 3, 3, 4, 2]) == 9
